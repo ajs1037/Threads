@@ -352,3 +352,19 @@ Answer. This is very interesting question where interviewees thread basics basic
 
 Let’s understand Why stop() method is deprecated :
 > Stopping a thread with Thread.stop() causes it to release all of the monitors that it has locked. If any of the objects previously protected by these monitors were in an inconsistent state, the damaged objects become visible to other threads, which might lead to unpredictable behavior.
+
+### Question 30. Difference between wait() and sleep() ? (Important)
+
+Answer. Should be called from synchronized block :wait() method is always called from synchronized block i.e. wait() method needs to lock object monitor before object on which it is called.  But sleep() method can be called from outside synchronized block i.e. sleep() method doesn’t need any object monitor.
+
+* **IllegalMonitorStateException:** if wait() method is called without acquiring object lock than IllegalMonitorStateException is thrown at runtime, but sleep() methodnever throws such exception.
+
+* **Belongs to which class:** wait() method belongs to java.lang.Object class but sleep() method belongs to java.lang.Thread class.
+
+* **Called on object or thread:**  wait() method is called on objects but sleep() method is called on Threads not objects.
+
+* **Thread state:** when wait() method is called on object, thread that holded object’s monitor goes from running to waiting state and can return to runnable state only when notify() or notifyAll()method is called on that object. And later thread scheduler schedules that thread to go from from runnable to running state.
+
+* when sleep() is called on thread it goes from running to waiting state and can return to runnable state when sleep time is up.
+
+* **When called from synchronized block:** when wait() method is called thread leaves the object lock.  But sleep()method when called from synchronized block or method thread doesn’t leaves object lock.
