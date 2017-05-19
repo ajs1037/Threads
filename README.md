@@ -207,9 +207,9 @@ consumerThread will enter run method and call consume() method. There it will ch
 
 synchronized (sharedQueue) {
 
- while (sharedQueue.size() == 0) { 
+ ...... while (sharedQueue.size() == 0) { 
 
-   sharedQueue.wait();
+   ... sharedQueue.wait();
 
  }
 
@@ -302,3 +302,37 @@ Few important measures to avoid Deadlock
 * Lock specific member variables of class rather than locking whole class: We must try to lock specific member variables of class rather than locking whole class.
 * Use join() method: If possible try touse join() method, although it may refrain us from taking full advantage of multithreading environment because threads will start and end sequentially, but it can be handy in avoiding deadlocks.
 * If possible try avoid using nested synchronization blocks.
+
+### Question 21. Have you ever generated thread dumps or analyzed Thread Dumps? (Important)
+
+Answer. Answering this questions will show your in depth knowledge of Threads. Every experienced must know how to generate Thread Dumps.
+* VisualVM  is most popular way to generate Thread Dump and is most widely used by developers. It’s important to understand usage of VisualVM for in depth knowledge of VisualVM. I’ll recommend every developer must understand this topic to become master in multi threading.
+* It helps us in analyzing threads performance, thread states, CPU consumed by threads, garbage collection and much more.  For detailed information see Generating and analyzing Thread Dumps using VisualVM - step by step detail to setup VisualVM with screenshots
+* jstack is very easy way to generate Thread dump and is widely used by developers. I’ll recommend every developer must understand this topic to become master in multi threading. For creating Thread dumps we need not to download any jar or any extra software. 
+
+### Question 22. What is life cycle of Thread, explain thread states? (Important)
+
+Answer. Thread states/ Thread life cycle is very basic question, before going deep into concepts we must understand Thread life cycle.
+
+- Thread have following states
+* New
+* Runnable
+* Running
+* Waiting/blocked/sleeping
+* Terminated (Dead)
+
+- Thread states in detail
+* New : When instance of thread is created using new operator it is in new state, but the start() method has not been invoked on the thread yet, thread is not eligible to run yet.
+* Runnable : When start() method is called on thread it enters runnable state.
+* Running : Thread scheduler selects thread to go fromrunnable to running state. In running state Thread starts executing by entering run() method.
+* Waiting/blocked/sleeping : In this state a thread is not eligible to run. Thread is still alive, but currently it’s not eligible to run. In other words.
+
+> How can Thread go from running to waiting state?
+
+ By calling wait()method thread go from running to waiting state. In waiting state it will wait for other threads to release object monitor/lock.
+
+> How can Thread go from running to sleeping state?
+
+ By calling sleep() methodthread go from running to sleeping state. In sleeping state it will wait for sleep time to get over.
+
+Terminated (Dead) : A thread is considered dead when its run() method completes.
