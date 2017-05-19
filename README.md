@@ -320,3 +320,34 @@ By calling wait()method thread go from running to waiting state. In waiting stat
 By calling sleep() methodthread go from running to sleeping state. In sleeping state it will wait for sleep time to get over.
 
 Terminated (Dead) : A thread is considered dead when its run() method completes.
+
+### Question 23. Are you aware of preemptive scheduling and time slicing?
+
+Answer. In preemptive scheduling, the highest priority thread executes until it enters into the waiting or dead state.
+
+In time slicing, a thread executes for a certain predefined time and then enters runnable pool. Than thread can enter running state when selected by thread scheduler.
+
+### Question 24. What are daemon threads?
+
+Answer.Daemon threads are low priority threads which runs intermittently in background for doing garbage collection.
+
+ 12 Few salient features of daemon() threads>
+
+1. Thread scheduler schedules these threads only when CPU is idle.
+2. Daemon threads are service oriented threads, they serves all other threads.
+3. These threads are created before user threads are created and die after all other user threads dies.
+4. Priority of daemon threads is always 1 (i.e. MIN_PRIORITY).
+5. User created threads are non daemon threads.
+6. JVM can exit when only daemon threads exist in system.
+7. We can use isDaemon() method to check whether thread is daemon thread or not.
+8. We can use setDaemon(boolean on) method to make any user method a daemon thread.
+9. If setDaemon(boolean on) is called on thread after calling start() method than IllegalThreadStateException is thrown.
+
+### Question 27. As stop() method is deprecated,  How can we terminate or stop infinitely running thread in java? (Important)
+
+Answer. This is very interesting question where interviewees thread basics basic will be tested. Interviewers tend to know user’s knowledge about main thread’s and thread invoked by main thread.
+* We will try to address the problem by creating new thread which will run infinitely until certain condition is satisfied and will be called by main Thread.
+* Infinitely running thread can be stopped using boolean variable.
+* Infinitely running thread can be stopped using interrupt() method.
+Let’s understand Why stop() method is deprecated :
+> Stopping a thread with Thread.stop() causes it to release all of the monitors that it has locked. If any of the objects previously protected by these monitors were in an inconsistent state, the damaged objects become visible to other threads, which might lead to unpredictable behavior.
