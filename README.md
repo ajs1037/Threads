@@ -127,7 +127,7 @@ Answer. This is very important question, this forms the core of multi threading,
 
 So we can solve race condition by using either synchronized block or synchronized method. When no two threads can access same resource at a time phenomenon is also called as mutual exclusion.
 
-Few sub questions>
+##### Few sub questions
 1. What if two threads try to read same resource without synchronization?
 
 2. When two threads try to read on same resource without synchronization, it’s never going to create any problem.
@@ -164,13 +164,10 @@ As multiple threads exists on same object. Only one thread can hold object monit
 Now let’s discuss one hypothetical scenario, what will happen if Thread class contains wait(), notify() and notifyAll() methods?
 Having wait(), notify() and notifyAll() methods means Thread class also must have their monitor.
 
-Every thread having their monitor will create few problems -
-
->Thread communication problem.
-
->Synchronization on object won’t be possible- Because object has monitor, one object can have multiple threads and thread hold lock on object by holding object monitor. But if each thread will have monitor, we won’t have any way of achieving synchronization.
-
->Inconsistency in state of object (because synchronization won't be possible).
+###### Every thread having their monitor will create few problems:
+* Thread communication problem.
+* Synchronization on object won’t be possible- Because object has monitor, one object can have multiple threads and thread hold lock on object by holding object monitor. But if each thread will have monitor, we won’t have any way of achieving synchronization.
+* Inconsistency in state of object (because synchronization won't be possible).
 
 ### Question 16. Is it important to acquire object lock before calling wait(), notify() and notifyAll()?
 
@@ -257,7 +254,7 @@ Answer. Now it’s time to gear up to face question which is most probably going
 
 BlockingQueue is a interface and we will use its implementation class LinkedBlockingQueue.
 
-Key methods for solving consumer producer pattern are >
+###### Key methods for solving consumer producer pattern are:
 
 put(i);  //used by producer to put/produce in sharedQueue.
 
