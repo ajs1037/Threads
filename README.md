@@ -70,8 +70,6 @@ Answer. Threads are lightweight process only if threads of same process are exec
 
 Answer.  Interviewers tend to know interviewees knowledge about Thread methods. So this is time to prove your point by answering correctly. We can use join() methodto ensure all threads that started from main must end in order in which they started and also main should end in last.In other words waits for this thread to die. Calling join() method internally calls join(0);
 
-DETAILED DESCRIPTION : Join() method - ensure all threads that started from main must end in order in which they started and also main should end in last. Types of join() method with programs- 10 salient features of join.
-
 ### Question 9. What is difference between starting thread with run() and start() method? (Important)
 
 Answer. This is quite interesting question, it might confuse you a bit and at time may make you think is there really any difference between starting thread with run() and start() method.
@@ -142,21 +140,15 @@ Answer. This is very must know question for all the interviewees, you will most 
 
 ### Question 15. Why wait(), notify()  and notifyAll() are in Object class and not in Thread class? (Important)
 
-Answer.  
-
-Every Object has a monitor, acquiring that monitors allow thread to hold lock on object. But Thread class does not have any monitors.
+Answer. Every Object has a monitor, acquiring that monitors allow thread to hold lock on object. But Thread class does not have any monitors.
 
 wait(), notify() and notifyAll()are called on objects only >When wait() method is called on object by thread it waits for another thread on that object to release object monitor by calling notify() or notifyAll() method on that object.
 
-When notify() method is called on object by thread it notifies all the threads
-
-which are waiting for that object monitor that object monitor is available now.
+When notify() method is called on object by thread it notifies all the threads, which are waiting for that object monitor that object monitor is available now.
 
 So, this shows that wait(), notify() and notifyAll() are called on objects only.
 
-Now, Straight forward question that comes to mind is how thread acquires object lock by
-
-acquiring object monitor? Let’s try to understand this basic concept in detail?
+Now, Straight forward question that comes to mind is how thread acquires object lock by acquiring object monitor? Let’s try to understand this basic concept in detail?
 
 Wait(), notify() and notifyAll() method being in Object class allows all the threads created on that object to communicate with other.  .
 As multiple threads exists on same object. Only one thread can hold object monitor at a time. As a result thread can notify other threads of same object that lock is available now. But, thread having these methods does not make any sense because multiple threads exists on object its not other way around (i.e. multiple objects exists on thread).
