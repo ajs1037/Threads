@@ -1,4 +1,3 @@
-# Threads.
 # Everything I need to know about Threads. 
 
 ### Question 1. What is Thread in java?
@@ -30,14 +29,14 @@ Thread has its own variables and methods, it lives and dies on the heap. But a t
 
 Thread creation by  implementingjava.lang.Runnableinterface.
 
-We will create object of class which implements Runnable interface :
+* We will create object of class which implements Runnable interface :
 
-MyRunnable runnable=new MyRunnable();
+    MyRunnable runnable=new MyRunnable();
+    Thread thread=new Thread(runnable);
+    
+* And then create Thread object by calling constructor and passing reference of Runnable interface i.e.  runnable object :
 
-Thread thread=new Thread(runnable);
-And then create Thread object by calling constructor and passing reference of Runnable interface i.e.  runnable object :
-
-Thread thread=new Thread(runnable);
+    Thread thread=new Thread(runnable);
 
 ### Question 4 . Does Thread implements their own Stack, if yes how? (Important)
 
