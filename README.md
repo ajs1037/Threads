@@ -331,7 +331,7 @@ In time slicing, a thread executes for a certain predefined time and then enters
 
 Answer.Daemon threads are low priority threads which runs intermittently in background for doing garbage collection.
 
- 12 Few salient features of daemon() threads>
+    12 Few salient features of daemon() threads>
 
 1. Thread scheduler schedules these threads only when CPU is idle.
 2. Daemon threads are service oriented threads, they serves all other threads.
@@ -349,5 +349,6 @@ Answer. This is very interesting question where interviewees thread basics basic
 * We will try to address the problem by creating new thread which will run infinitely until certain condition is satisfied and will be called by main Thread.
 * Infinitely running thread can be stopped using boolean variable.
 * Infinitely running thread can be stopped using interrupt() method.
+
 Let’s understand Why stop() method is deprecated :
 > Stopping a thread with Thread.stop() causes it to release all of the monitors that it has locked. If any of the objects previously protected by these monitors were in an inconsistent state, the damaged objects become visible to other threads, which might lead to unpredictable behavior.
