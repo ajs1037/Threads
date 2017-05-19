@@ -204,56 +204,45 @@ consumerThread.start();
 consumerThread will enter run method and call consume() method. There it will check for sharedQueue’s size.
 
 -if size is equal to 0 that means producer hasn’t produced any product, wait for producer to produce by using below piece of code-
-
+```
 synchronized (sharedQueue) {
-
- ...... while (sharedQueue.size() == 0) { 
-
-   ... sharedQueue.wait();
-
+    while (sharedQueue.size() == 0) { 
+       sharedQueue.wait();
+    }
  }
-
- }
+```
 -if size is greater than 0, consumer will start consuming by using below piece of code.
-
- synchronized (sharedQueue) {
-
- Thread.sleep((long)(Math.random() * 2000));
-
- System.out.println("consumed : "+ sharedQueue.remove(0));
-
- sharedQueue.notify();
-
+```
+synchronized (sharedQueue) {
+    Thread.sleep((long)(Math.random() * 2000));
+    System.out.println("consumed : "+ sharedQueue.remove(0));
+    sharedQueue.notify();
  }
+```
 Than we will start producerThread > 
 producerThread.start();
 
 producerThread will enter run method and call produce() method. There it will check for sharedQueue’s size.
 
 -if size is equal to 2 (i.e. maximum number of products which sharedQueue can hold at a time), wait for consumer to consume by using below piece of code-
-
+```
  synchronized (sharedQueue) {
-
- while (sharedQueue.size() == maxSize) { //maxsize is 2
-
- sharedQueue.wait();
-
+     while (sharedQueue.size() == maxSize) { //maxsize is 2
+         sharedQueue.wait();
+     }
  }
-
- }
+ ```
+ 
 -if size is less than 2, producer will start producing by using below piece of code.
-
+```
 synchronized (sharedQueue) {
+    System.out.println("Produced : " + i);
+    sharedQueue.add(i);
+    Thread.sleep((long)(Math.random() * 1000));
+    sharedQueue.notify();
+}
+```
 
- System.out.println("Produced : " + i);
-
- sharedQueue.add(i);
-
- Thread.sleep((long)(Math.random() * 1000));
-
- sharedQueue.notify();
-
- }
 DETAILED DESCRIPTION with program : Solve Consumer Producer problem by using wait() and notify() methods in multithreading.
 
 ### Question 18. How to solve Consumer Producer problem without using wait() and notify() methods, where consumer can consume only when production is over.?
