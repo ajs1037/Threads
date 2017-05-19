@@ -368,3 +368,68 @@ Answer. Should be called from synchronized block :wait() method is always called
 * when sleep() is called on thread it goes from running to waiting state and can return to runnable state when sleep time is up.
 
 * **When called from synchronized block:** when wait() method is called thread leaves the object lock.  But sleep()method when called from synchronized block or method thread doesn’t leaves object lock.
+
+### Question 37. What will happen if we don’t override run method?
+
+Answer.  This question will test your basic knowledge how start and run methods work internally in Thread Api.
+* When we call start() method on thread, it internally calls run() method with newly created thread. So, if we don’t override run() method newly created thread won’t be called and nothing will happen.
+
+### Question 38. What will happen if we override start method?
+
+Answer. This question will again test your basic core java knowledge how overriding works at runtime, what what will be called at runtime and how start and run methods work internally in Thread Api.
+* When we call start() method on thread, it internally calls run() method with newly created thread. So, if we override start() method, run() method will not be called until we write code for calling run() method.
+
+### Question 51.  How can you implement your own Thread Pool in java?
+
+Answer.
+
+What is ThreadPool?
+> ThreadPool is a pool of threads which reuses a fixed number of threads  to execute tasks.
+
+* At any point, at most nThreads threads will be active processing tasks. If additional tasks are submitted when all threads are active, they will wait in the queue until a thread is available.
+* ThreadPool implementation internally uses LinkedBlockingQueue for adding and removing tasks.
+
+##### Need/Advantage of ThreadPool?
+* Instead of creating new thread every time for executing tasks, we can create ThreadPool which reuses a fixed number of threads for executing tasks.
+* As threads are reused, performance of our application improves drastically.
+
+##### How ThreadPool works?
+* We will instantiate ThreadPool, in ThreadPool’s constructor nThreads number of threads are created and started.
+
+    ThreadPool threadPool=new ThreadPool(2);
+
+Here 2 threads will be created and started in ThreadPool.
+
+Then, threads will enter run() method of ThreadPoolsThread class and will call take() method on taskQueue.
+
+If tasks are available thread will execute task by entering run() method of task (As tasks executed always implements Runnable).
+
+publicvoid run() {
+
+. . .
+
+ while (true) {  
+
+ . . .  
+
+ Runnable runnable = taskQueue.take();
+
+ runnable.run();
+
+ . . .
+
+ }
+
+. . .
+
+}  
+
+Else waits for tasks to become available.
+
+When tasks are added?
+
+When execute() method of ThreadPool is called, it internally calls put() method on taskQueue to add tasks.
+
+taskQueue.put(task);
+
+Once tasks are available all waiting threads are notified that task is available.
