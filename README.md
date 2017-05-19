@@ -404,32 +404,10 @@ Then, threads will enter run() method of ThreadPoolsThread class and will call t
 
 If tasks are available thread will execute task by entering run() method of task (As tasks executed always implements Runnable).
 
-publicvoid run() {
-
-. . .
-
- while (true) {  
-
- . . .  
-
- Runnable runnable = taskQueue.take();
-
- runnable.run();
-
- . . .
-
- }
-
-. . .
-
-}  
-
-Else waits for tasks to become available.
-
-When tasks are added?
+##### When tasks are added?
 
 When execute() method of ThreadPool is called, it internally calls put() method on taskQueue to add tasks.
 
-taskQueue.put(task);
+    taskQueue.put(task);
 
 Once tasks are available all waiting threads are notified that task is available.
