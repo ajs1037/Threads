@@ -422,7 +422,7 @@ Answer.  When thread does not enough CPU for its execution Thread starvation hap
 * Thread might be waiting indefinitely for lock on object’s monitor (by calling wait() method), because no other thread is calling notify()/notifAll() method on object. In that case, Thread starves away to get CPU.
 * Thread might be waiting indefinitely for lock on object’s monitor (by calling wait() method), but notify() may be repeatedly awakening some other threads. In that case also Thread starves away to get CPU.
 
-# Define each method (methods are invoked on a particular Thread object) :
+### Question 57. Define each method (methods are invoked on a particular Thread object) :
 
 1. public void start()
 
@@ -456,7 +456,7 @@ Interrupts this thread, causing it to continue execution if it was blocked for a
 
 Returns true if the thread is alive, which is any time after the thread has been started but before it runs to completion.
 
-# Define each method (methods in the Thread class are static. Invoking one of the static methods performs the operation on the currently running thread.) :
+### Question 58. Define each method (methods in the Thread class are static. Invoking one of the static methods performs the operation on the currently running thread.) :
 
 1. public static void yield()
 
