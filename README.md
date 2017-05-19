@@ -1,6 +1,5 @@
-# Threads
-
-Everything I need to know about Threads. 
+# Threads.
+# Everything I need to know about Threads. 
 
 ### Question 1. What is Thread in java?
 * Threads consumes CPU in best possible manner, hence enables multi processing. Multi threading reduces idle time of CPU which improves    performance of application.
