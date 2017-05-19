@@ -331,7 +331,7 @@ In time slicing, a thread executes for a certain predefined time and then enters
 
 Answer.Daemon threads are low priority threads which runs intermittently in background for doing garbage collection.
 
-    12 Few salient features of daemon() threads>
+##### 12 Few salient features of daemon() threads>
 
 1. Thread scheduler schedules these threads only when CPU is idle.
 2. Daemon threads are service oriented threads, they serves all other threads.
