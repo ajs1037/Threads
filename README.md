@@ -328,9 +328,9 @@ Answer. Thread states/ Thread life cycle is very basic question, before going de
 * Waiting/blocked/sleeping : In this state a thread is not eligible to run. Thread is still alive, but currently it’s not eligible to run. In other words.
 
 ###### How can Thread go from running to waiting state?
-> By calling wait()method thread go from running to waiting state. In waiting state it will wait for other threads to release object monitor/lock.
+By calling wait()method thread go from running to waiting state. In waiting state it will wait for other threads to release object monitor/lock.
 
 ###### How can Thread go from running to sleeping state?
-> By calling sleep() methodthread go from running to sleeping state. In sleeping state it will wait for sleep time to get over.
+By calling sleep() methodthread go from running to sleeping state. In sleeping state it will wait for sleep time to get over.
 
 Terminated (Dead) : A thread is considered dead when its run() method completes.
