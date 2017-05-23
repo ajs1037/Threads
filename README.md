@@ -13,10 +13,10 @@ Advantage of Thread : Suppose one thread needs 10 minutes to get certain task, 1
 ### Question 2. What is difference between Process and Thread in java?
 
 Answer.  One process can have multiple Threads,
-* Thread are subdivision of Process. One or more Threads runs in the context of process. Threads can execute any part of process. And same part of process can be executed by multiple Threads.
+* Threads are subdivision of Process. One or more Threads runs in the context of process. Threads can execute any part of process. And same part of process can be executed by multiple Threads.
 * Processes have their own copy of the data segment of the parent process while Threads have direct access to the data segment of its process.
 * Processes have their own address while Threads share the address space of the process that created it.
-* Process creation needs whole lot of stuff to be done, we might need to copy whole parent process, but Thread can be easily created.
+* Process creation needs a whole lot of stuff to be done, we might need to copy whole parent process, but Thread can be easily created.
 * Processes can easily communicate with child processes but interprocess communication is difficult. While, Threads can easily communicate with other threads of the same process using wait() and notify() methods.
 * In process all threads share system resource like heap Memory etc. while Thread has its own stack.
 * Any change made to process does not affect child processes, but any change made to thread can affect the behavior of the other threads of the process.
@@ -38,9 +38,9 @@ Thread creation by  implementingjava.lang.Runnableinterface.
 
     Thread thread=new Thread(runnable);
 
-### Question 4 . Does Thread implements their own Stack, if yes how? (Important)
+### Question 4 . Does Thread implement its own Stack, if yes how? (Important)
 
-Answer.  Yes, Threads have their own stack. This is very interesting question, where interviewer tends to check your basic knowledge about how threads internally maintains their own stacks. I’ll be explaining you the concept by diagram.
+Answer.  Yes, Threads have their own stack. This is very interesting question, where an interviewer tends to check your basic knowledge about how threads internally maintains their own stacks.
 
 ### Question 5. We should implement Runnable interface or extend Thread class. What are differences between implementing Runnable and extending Thread?
 
@@ -58,17 +58,17 @@ Differences between implementing Runnable interface and extending Thread class -
 
 ### Question 6. How can you say Thread behaviour is unpredictable? (Important)
 
-Answer. The solution to question is quite simple, Thread behaviour is unpredictable because execution of Threads depends on Thread scheduler, thread scheduler may have different implementation on different platforms like windows, unix etc. Same threading program may produce different output in subsequent executions even on same platform.
+Answer. The solution to this question is quite simple, Thread behaviour is unpredictable because execution of Threads depends on Thread scheduler, the thread scheduler may have different implementation on different platforms like windows, unix etc. Same threading program may produce different output in subsequent executions even on same platform.
 
-To achieve we are going to create 2 threads on same Runnable Object, create for loop in run() method and start  both threads. There is no surety that which threads will complete first,  both threads will enter anonymously in for loop.
+To achieve this we are going to create 2 threads on same Runnable Object, create for loop in run() method and start  both threads. There is no surety that which threads will complete first,  both threads will enter anonymously in for loop.
 
 ### Question 7 . When threads are not lightweight process in java?
 
-Answer. Threads are lightweight process only if threads of same process are executing concurrently. But if threads of different processes are executing concurrently then threads are heavy weight process.
+Answer. Threads are lightweight processes only if threads of the same process are executing concurrently. But if threads of different processes are executing concurrently then threads are heavy weight process.
 
 ### Question 8. How can you ensure all threads that started from main must end in order in which they started and also main should end in last? (Important)
 
-Answer.  Interviewers tend to know interviewees knowledge about Thread methods. So this is time to prove your point by answering correctly. We can use join() methodto ensure all threads that started from main must end in order in which they started and also main should end in last.In other words waits for this thread to die. Calling join() method internally calls join(0);
+Answer.  Interviewers tend to know interviewees knowledge about Thread methods. So this is time to prove your point by answering correctly. We can use join() methods to ensure all threads that started from main must end in order in which they started and also main should end in last.In other words waits for this thread to die. Calling join() method internally calls join(0);
 
 ### Question 9. What is difference between starting thread with run() and start() method? (Important)
 
